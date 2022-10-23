@@ -1,9 +1,11 @@
 
 import React, {useState, useEffect} from 'react';
 import TableData from './components/TableData';
-import { pokemonList } from './pokemon-list';
+import { pokemonList } from './pokemonLists/pokemon-list';
+import { pokemonGroup } from './pokemonLists/pokemon-list-slice';
 
 import "./App.css"
+import TestingButton from './components/Testing';
 
 export default function App() {
 
@@ -12,29 +14,39 @@ export default function App() {
   const [gameOngoing, setGameOngoing] = useState(false);
 
   useEffect(() => {
+    const addPokemon = (pokemon) => {
+      if(gameList.length === 0){ // if the game list is empty, no duplicate checks need performing
+        setGameList([...gameList, ...pokemon])
+        console.log(pokemon + ' added')
+        setUserInput("")
+      } else { 
+        if(gameList.includes(...pokemon)){// duplicate check
+          console.log(`${userInput} already exists in array`)
+        } else {
+          setGameList([...gameList, ...pokemon])
+          console.log(userInput + ' added')
+          setUserInput("")
+        }
+    } 
+  }
+    if(userInput.toLowerCase() === "nidoran"){// nidoran check
+      addPokemon(["nidoran f", "nidoran m"]);
+    }
+    if(userInput.toLowerCase() === "farfetchd"){// farfetch'd check
+      addPokemon(["farfetch'd"])
+    }
     pokemonList.map((pokemon)=>{
       if(userInput.toLowerCase() === pokemon.name.toLowerCase()){
-        if(gameList.length === 0){
-          setGameList([...gameList, pokemon.name.toLowerCase()])
-          setUserInput("")
-          return null
-        } else {
-          if(gameList.includes(userInput.toLowerCase())){
-            console.log(`${userInput} already exists in array`)
-            return null
-          } else {
-            setGameList([...gameList, pokemon.name.toLowerCase()])
-            setUserInput("")
-            return null
-          }
-      } 
+        addPokemon([pokemon.name.toLowerCase()]) 
     }
     return null
   })}, [userInput, gameList])
 
+  console.log(gameList)
+
   //counter
   useEffect(()=>{
-    if(gameList === 151 && !gameOngoing){
+    if(gameList.length === 151 && gameOngoing){
       setGameOngoing(false)
     } else {
       // setGameOngoing(true)
@@ -42,30 +54,15 @@ export default function App() {
   }, [gameList, gameOngoing]
   )
 
-  const pokemonGroup = [
-    pokemonList.slice(0, 16),
-    pokemonList.slice(16, 32),
-    pokemonList.slice(32, 48),
-    pokemonList.slice(48, 64),
-    pokemonList.slice(64, 80),
-    pokemonList.slice(80, 96),
-    pokemonList.slice(96, 112),
-    pokemonList.slice(112, 128),
-    pokemonList.slice(128, 144),
-    pokemonList.slice(144)
-  ]
-
-
-
   const renderGameStatus = () => 
     gameOngoing 
       ? `${gameList.length} / 151`
-      : gameList.length ? `You got ${gameList.length} out of 151. Start typing below to try again!` : "Start typing below to start new game"
+      : gameList.length ? `You got ${gameList.length} out of 151. Play again?` : "Start typing below to start new game"
 
     const renderButton = () =>
       !gameOngoing && gameList.length 
         ? <button onClick={()=>resetGame()}>Reset Game</button>
-        : <button onClick={()=>endGame()} disabled={!gameOngoing}>End Game</button>
+        : <button onClick={()=>endGame()} disabled={!gameOngoing} className={!gameOngoing ? "disabled" : null}>End Game</button>
 
 
   const startNewGame = () => {
@@ -92,38 +89,30 @@ export default function App() {
     }
   }
 
-  // const autoFill = () => {
-  //   setGameOngoing(true)
-  //   console.log(pokemonList)
-  //   pokemonList.map((pokemon)=>{
-  //     setGameList([...gameList, pokemon.name.toLowerCase()])
-  //     console.log(gameList)
-  //     return null
-  //   })
-  // }  
-  return (
-    <div className="App">
-
-      <div className="game-status">{renderGameStatus()}</div>
   
+  return (
+    <div className="app">
+      <header>
+        <h1>151 Pokémon Quiz</h1>
+        <h2>Can you get all 151 Gen 1 Pokémon?</h2>
+      </header>
+      <div className="game-status">{renderGameStatus()}</div>
       <input 
         value={userInput}
         onChange={(e)=>handleOnChange(e.target.value)}
       />
+      {renderButton()}
+      <TestingButton setGameList={setGameList} setGameOngoing={setGameOngoing} />
 
       <table>
-      {pokemonGroup.map((list)=>{ 
-        return <tr>
-          {list.map((pokemon)=>{
-            return <TableData pokemon={pokemon} gameList={gameList} gameOngoing={gameOngoing}/>
-          })}
-        </tr>
-      })}
+        {pokemonGroup.map((list)=>{ 
+          return <tr>
+            {list.map((pokemon)=>{
+              return <TableData pokemon={pokemon} gameList={gameList} gameOngoing={gameOngoing}/>
+            })}
+          </tr>
+        })}
       </table>
-
-        {renderButton()}
-
-        {/* <button onClick={()=>autoFill()}>Test</button> */}
     </div>
   );
 };

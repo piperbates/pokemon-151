@@ -36,7 +36,7 @@ export const pokemonList = [
     {dex: 35, name: "Clefairy"},
     {dex: 36, name: "Clefable"},
     {dex: 37, name: "Vulpix"},
-    {dex: 38, name: "Ninetails"},
+    {dex: 38, name: "Ninetales"},
     {dex: 39, name: "Jigglypuff"},
     {dex: 40, name: "Wigglytuff"},
     {dex: 41, name: "Zubat"},
