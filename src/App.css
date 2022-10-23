@@ -1,12 +1,48 @@
+body {
+  width: 100%;
+  padding: 0px; margin: 0px;
+}
 
+.app {
+  width: 75%;
+  margin: auto;
 
-.td {
-  width: 100px;
-  border: 1px solid grey;
-  height: 30px;
 }
 
 table {
+  width: 100%;
   font-size:.7em;
+  margin: auto;
 
+}
+
+td {
+  min-width: 95px;
+  max-width: 200px;
+  border: 1px solid grey;
+  height: 30px;
+  padding-left: 6px;
+}
+
+button {
+  background: white;
+  border: 1px solid black;
+  margin: 5px;
+  padding: 5px;
+}
+
+button:hover {
+  background-color: #90EE90;
+}
+
+.disabled:hover {
+  background: inherit;
+
+}
+
+@media only screen and (max-width: 900px) {
+  .app {width: 95%;}
+  table {width: 100%;}
+  
+  td {min-width: 50px;}
 }

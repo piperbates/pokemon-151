@@ -30,9 +30,13 @@ export default function TableData({ pokemon, gameList, gameOngoing }) {
 
     const styleAnswered =  {color: "black"}
     const styleIncorrect = shouldUnansweredBeRed ? {color: "red"} : styleAnswered
+    const backgroundAnswered = answered ? {
+        backgroundColor: "#90EE90", 
+        border: "1px solid #90EE90"
+    } : {backgroundColor: "white", border: "1px solid grey"}
 
     return (
-        <td className="td">
+        <td style={backgroundAnswered}>
             <span 
                 style={!gameOngoing 
                             ? answered ? styleAnswered : styleIncorrect
