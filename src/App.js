@@ -50,8 +50,6 @@ export default function App() {
     return null
   })}, [userInput, gameList])
 
-  console.log(gameList)
-
   //counter
   useEffect(()=>{
     if(gameList.length === 151 && gameOngoing){
@@ -113,7 +111,7 @@ export default function App() {
             onChange={(e)=>handleOnChange(e.target.value)}
           />
           {renderButton()}
-          <TestingButton setGameList={setGameList} setGameOngoing={setGameOngoing} />
+          {/* <TestingButton setGameList={setGameList} setGameOngoing={setGameOngoing} /> */}
           <Timer 
             endGame={endGame} 
             gameOngoing={gameOngoing}
