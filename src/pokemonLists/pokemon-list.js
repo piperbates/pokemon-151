@@ -120,7 +120,7 @@ export const pokemonList = [
     {dex: 119, name: "Seaking"},
     {dex: 120, name: "Staryu"},
     {dex: 121, name: "Starmie"},
-    {dex: 122, name: "Mr Mime"},
+    {dex: 122, name: "Mr. Mime"},
     {dex: 123, name: "Scyther"},
     {dex: 124, name: "Jynx"},
     {dex: 125, name: "Electabuzz"},

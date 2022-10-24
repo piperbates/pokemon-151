@@ -16,6 +16,7 @@ export const pokemonGroup = [
     pokemonList.slice(48, 52),
     pokemonList.slice(52, 56),
     pokemonList.slice(56, 60),
+    pokemonList.slice(60, 64),
     pokemonList.slice(64, 68),
     pokemonList.slice(68, 72),
     pokemonList.slice(72, 76),
@@ -35,6 +36,7 @@ export const pokemonGroup = [
     pokemonList.slice(128, 132),
     pokemonList.slice(132, 136),
     pokemonList.slice(136, 140),
+    pokemonList.slice(140, 144),
     pokemonList.slice(144, 148),
     pokemonList.slice(148),
   ]
