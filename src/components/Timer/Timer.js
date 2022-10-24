@@ -31,8 +31,6 @@ const Timer = ({endGame, gameOngoing, seconds, minutes, setMinutes, setSeconds})
         } 
     },[minutes, seconds, endGame])
 
-    console.log(minutes, seconds)
-
     const renderTime = () => {
         const actualMinutes = minutes < 10 ? `0${minutes}` : minutes
         const actualSeconds = seconds < 10 ? `0${seconds}` : seconds
