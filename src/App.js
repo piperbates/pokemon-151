@@ -6,7 +6,7 @@ import { pokemonList } from './pokemonLists/pokemon-list';
 import { pokemonGroup } from './pokemonLists/pokemon-list-slice';
 
 import "./App.css"
-import TestingButton from './components/Testing';
+// import TestingButton from './components/Testing';
 
 export default function App() {
 
