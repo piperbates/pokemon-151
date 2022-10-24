@@ -4,9 +4,10 @@ Heavily based off the sporcle game but with no ads and hopefully a smoother expe
 
 To do
 1. Spelling and Dex number check, are the pokemon in the right dex numbers and spelt correctly?
-2. When 151 pokemon is done, end game automatically
-3. Set a timer so game is timed
-4. Styling (colour change on gotten pokemon to make it easier to see what's been got)
+3. Refactor pokemon-list-slice so it automatically slices depending on what number is added
+4. Test countdown
+5. BUG: If end game on empty gameList the game doesn't "lose"
 
 Future ideas:
-1. Share function so you can share your score online
+1. Share mode so you can share your score online
+2. Leaderboard with best complete times
