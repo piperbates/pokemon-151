@@ -3,9 +3,10 @@ import React, {useState, useEffect} from 'react';
 import Timer from './components/Timer/Timer';
 import TableData from './components/TableData';
 import { pokemonList } from './pokemonLists/pokemon-list';
-import { pokemonGroup } from './pokemonLists/pokemon-list-slice';
+import { dynamicslicer, pokemonGroup } from './pokemonLists/pokemon-list-slice';
 
 import "./App.css"
+import { pokemonGens } from './pokemonLists/pokemon-gen-slicer';
 // import TestingButton from './components/Testing';
 
 export default function App() {
@@ -98,8 +99,15 @@ export default function App() {
     }
   }
 
+  const handleDynamicSlice = () => {
+    dynamicslicer(pokemonGens.gen1, 4)
+  }
+
+  console.log(pokemonGroup)
+
   return (
     <div className="app">
+    <button onClick={handleDynamicSlice}>Click</button>
       <header>
         <h1>151 Pokémon Quiz</h1>
         <h2>Can you get all 151 Gen 1 Pokémon?</h2>
