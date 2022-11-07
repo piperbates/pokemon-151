@@ -6,7 +6,7 @@ import { dynamicslicer } from './pokemonLists/pokemon-list-slice';
 
 import "./App.css"
 import { pokemonGens } from './pokemonLists/pokemon-gen-slicer';
-import TestingButton from './components/Testing';
+// import TestingButton from './components/Testing';
 
 export default function App() {
 
@@ -171,7 +171,7 @@ export default function App() {
             onChange={(e)=>handleOnChange(e.target.value)}
           />
           {renderButton()}
-          <TestingButton generation={generation} setGameList={setGameList} setGameOngoing={setGameOngoing} />
+          {/* <TestingButton generation={generation} setGameList={setGameList} setGameOngoing={setGameOngoing} /> */}
           <Timer 
             endGame={endGame} 
             gameOngoing={gameOngoing}
