@@ -11,4 +11,4 @@ To do
 Future ideas:
 * Share mode so you can share your score online
 * Leaderboard with best complete times
-* Include future generations 
+* Include future generations
