@@ -1,12 +1,11 @@
 import React from 'react'
-import { pokemonList } from '../pokemonLists/pokemon-list'
 
-const TestingButton = ({setGameOngoing, setGameList}) => {
+const TestingButton = ({generation, setGameOngoing, setGameList}) => {
     // For testing purposes only, auto fills the board
   const autoFill = () => {
     setGameOngoing(true)
     let testArray = []
-    pokemonList.map((pokemon)=>{
+    generation.map((pokemon)=>{
       return testArray.push(pokemon.name.toLowerCase())
     })
     setGameList([...testArray])
